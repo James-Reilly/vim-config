@@ -47,4 +47,10 @@ colorscheme solarized
 set guifont=Monaco:h13
 set antialias
 
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
+
+" Set Control-N to toggle the tree view
+map <C-n> :NERDTreeToggle<CR>
+
+" Close NERDTree if all other files are closed
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
